@@ -1,6 +1,6 @@
 # UX-UI---Atividade-Teste-de-Caixa-Branca
 
-# Sistema de Login e Autenticação em Java
+# Teste Caixa Branca - Sistema de Login e Autenticação em Java
 
 Este projeto é uma implementação básica de um sistema de autenticação utilizando Java e conexão com banco de dados. O objetivo é validar as credenciais de um usuário e retornar o resultado da autenticação.
 
