@@ -33,6 +33,43 @@ Este projeto é uma implementação básica de um sistema de autenticação util
 
    - **Correção proposta:** Atualizar para `com.mysql.cj.jdbc.Driver` e garantir compatibilidade com versões modernas.
 
+---
+
+## Etapa 3 (Teste de Caixa Branca) - Grafo de Fluxo | Complexidade Ciclomática | Caminhos
+
+### Teste de Caixa Branca - Grafo de Fluxo
+
+Abaixo se encontra o grafo de fluxo, com base no método `verificarUsuario`:
+
+## Fluxo do Método
+![Fluxo do Método](images/Teste%20de%20Caixa%20Branca(Grafo).drawio.png)
+
+### Complexidade Ciclomática
+A complexidade ciclomática foi calculada com a fórmula:  
+\[
+M = E - N + 2P
+\]  
+- **Nodos (N):** 11  
+- **Arestas (E):** 13  
+- **Componentes Conexos (P):** 1  
+
+**Resultado:**  
+\[
+M = 13 - 11 + 2(1) = 4
+\]
+
+### Caminhos Independentes
+#### Caminho 1
+Início → Conexão com o Banco → Conexão Bem Sucedida? (Não) → Retornar Falso.
+
+#### Caminho 2
+Início → Conexão com o Banco → Conexão Bem Sucedida? (Sim) → Construir SQL → Executar Consulta → Execução Bem Sucedida? (Não) → Retornar Falso.
+
+#### Caminho 3
+Início → Conexão com o Banco → Conexão Bem Sucedida? (Sim) → Construir SQL → Executar Consulta → Execução Bem Sucedida? (Sim) → Verificar rs.next()? (Não) → Retornar Falso.
+
+#### Caminho 4
+Início → Conexão com o Banco → Conexão Bem Sucedida? (Sim) → Construir SQL → Executar Consulta → Execução Bem Sucedida? (Sim) → Verificar rs.next()? (Sim) → Atualizar Nome e Resultado → Retornar Verdadeiro.
 
 ---
 
