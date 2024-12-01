@@ -6,7 +6,7 @@ Este projeto é uma implementação básica de um sistema de autenticação util
 
 ---
 
-### Etapa 1: Erros Encontrados no Código (Teste de Caixa Branca)
+## Etapa 1: Erros Encontrados no Código (Teste de Caixa Branca)
 
 1. **Ausência de logs para falhas críticas:**  
    Exceções capturadas não são registradas, dificultando a depuração e rastreamento de problemas.
