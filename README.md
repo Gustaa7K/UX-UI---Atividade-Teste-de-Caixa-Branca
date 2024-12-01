@@ -42,7 +42,7 @@ Este projeto é uma implementação básica de um sistema de autenticação util
 Abaixo se encontra o grafo de fluxo, com base no método `verificarUsuario`:
 
 ## Fluxo (Grafo) do Método
-![Fluxo do Método](images/TestedeCaixaBranca(Grafo).drawio.png)
+![Fluxo do Método](TestedeCaixaBranca(Grafo).drawio.png)
 
 ### Complexidade Ciclomática
 A complexidade ciclomática foi calculada com a fórmula:  
