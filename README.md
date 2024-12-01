@@ -6,35 +6,33 @@ Este projeto é uma implementação básica de um sistema de autenticação util
 
 ---
 
-## Estrutura do Projeto
+### Etapa 1 (Teste de Caixa Branca) Erros Encontrados no Código 
 
-O projeto está dividido em:
+1. **Ausência de logs para falhas críticas:**  
+   Exceções capturadas não são registradas, dificultando a depuração e rastreamento de problemas.
 
-- **src/login/User.java**: Classe principal que contém os métodos para conectar ao banco de dados e verificar o login do usuário.
-- **docs/**: Documentação Javadoc gerada a partir do código.
-- **bin/**: Arquivos gerados pela compilação do código.
+   - **Correção proposta:** Utilizar bibliotecas como Log4j ou SLF4J para registrar falhas.
 
----
+2. **Conexões abertas mesmo após falha:**  
+   Conexões não são fechadas adequadamente, mesmo em casos de erro, podendo causar vazamentos de recursos.
 
-## Documentação do Projeto
+   - **Correção proposta:** Implementar o uso de `try-with-resources`.
 
-A documentação foi gerada com a ferramenta Javadoc e descreve as classes, métodos e atributos utilizados no projeto. Para acessá-la:
+3. **Uso de variáveis globais inseguras:**  
+   Atributos como `public String nome` são expostos diretamente, representando riscos à segurança e encapsulamento.
 
-1. Baixe o repositório.
-2. Abra a pasta `docs`.
-3. Clique no arquivo `index.html` e visualize no navegador.
+   - **Correção proposta:** Utilizar encapsulamento com modificadores de acesso adequados.
 
----
+4. **Falta de validação dos parâmetros de entrada:**  
+   Dados de entrada não são validados, abrindo espaço para entradas malformadas.
 
-## Funcionalidades Implementadas
+   - **Correção proposta:** Implementar rotinas de validação antes de executar consultas SQL.
 
-1. **Conexão ao Banco de Dados**:
-   - Estabelece conexão com um banco MySQL utilizando `DriverManager`.
-   - Detalhes de autenticação estão configurados diretamente na string de conexão.
+5. **Dependência de driver JDBC desatualizado:**  
+   O código utiliza `com.mysql.Driver`, que está obsoleto em versões mais recentes do MySQL JDBC.
 
-2. **Validação de Credenciais**:
-   - Verifica o login e a senha fornecidos.
-   - Retorna `true` se as credenciais forem válidas, junto com o nome do usuário.
+   - **Correção proposta:** Atualizar para `com.mysql.cj.jdbc.Driver` e garantir compatibilidade com versões modernas.
+
 
 ---
 
